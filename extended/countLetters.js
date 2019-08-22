@@ -2,7 +2,7 @@
 console.log('----------⬇COUNT_LETTERS⬇-----------');
 
 
-let str = 'aasasdffddwefdsf';
+let str = 'aasasdffddwefdssssf';
 console.log(`${str} => ${countLetters(str)}`);
 
 console.log(`${null} => ${countLetters(null)}`);
@@ -29,13 +29,12 @@ function countLetters(str){
         let letter = trimStr[i];
         if (letter === ' ') continue;
 
-        if (letter === prevLetter){
-            count++;
-        } else {
+        if (letter !== prevLetter){
             result +=  count + prevLetter;
-            count = 1;
+            count = 0;
         }
 
+        count++;
         prevLetter = letter;
     }
 
