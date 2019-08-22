@@ -32,14 +32,14 @@ function countLetters(str){
         if (letter === prevLetter){
             count++;
         } else {
-            result += prevLetter + count;
+            result +=  count + prevLetter;
             count = 1;
         }
 
         prevLetter = letter;
     }
 
-    result += prevLetter + count;
+    result += count + prevLetter;
 
     return result;
 }
