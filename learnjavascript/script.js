@@ -72,12 +72,11 @@ console.log('ObjectLesson.Sum');
 console.log(object_lesson_3_sum());
 console.log('--------------------');
 console.log('ObjectLesson.Multiply');
-let menu = {
+object_lesson_3_multiplyNumeric({
     width: 201,
     height: 300,
     title: "My menu"
-};
-object_lesson_3_multiplyNumeric(menu);
+});
 console.log(menu);
 console.log('--------------------');
 

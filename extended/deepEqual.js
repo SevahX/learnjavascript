@@ -33,6 +33,7 @@ function deepEqual(a, b) {
 - я бы рекомендовал переделать алгоритм   и проверять примитивы->null->обьект -->  количество ключей
  */
 function deepEqual(a, b) {
+
     return true;
 }
 
