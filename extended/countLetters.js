@@ -22,7 +22,30 @@ function countLetters(str){
     if (trimStr.length === 0) return null;
 
     let result = '';
-    let prevLetter = trimStr[0];
+    let count = 1;
+
+    for (let i = 0; i < trimStr.length; i++) {
+        let letter = trimStr[i];
+        let nextLetter = trimStr[i+1];
+
+        if (letter === ' ') continue;
+
+        if (letter !== nextLetter){
+            result += count + letter;
+            count = 0;
+        }
+
+        count++;
+    }
+
+    return result;
+}
+
+
+console.log('----------⬆COUNT_LETTERS⬆-----------');
+
+
+/*  Prev Solve
     let count = 0;
 
     for (let i = 0; i < trimStr.length; i++) {
@@ -30,18 +53,11 @@ function countLetters(str){
         if (letter === ' ') continue;
 
         if (letter !== prevLetter){
-            result +=  count + prevLetter;
+            result += count + prevLetter;
             count = 0;
         }
 
         count++;
         prevLetter = letter;
     }
-
-    result += count + prevLetter;
-
-    return result;
-}
-
-
-console.log('----------⬆COUNT_LETTERS⬆-----------');
+ */
