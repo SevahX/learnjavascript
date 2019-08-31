@@ -10,8 +10,12 @@ function createCalendar(elem, year, month) {
 
     let currentTr = document.createElement("tr");
     console.log(firstDate.getDay() + " " + lastDate.getDay());
-    let firstEmptyCount = firstDate.getDay() === 0 ? 6 : firstDate.getDay() - 1;
-    let endEmptyCount = lastDate.getDay() === 0 ? 0 : 7 - lastDate.getDay();
+    let firstEmptyCount = firstDate.getDay() === 0
+        ? 6
+        : firstDate.getDay() - 1;
+    let endEmptyCount = lastDate.getDay() === 0
+        ? 0
+        : 7 - lastDate.getDay();
 
     let count = 1;
     for (let i = -firstEmptyCount + 1; i <= daysInMonth + endEmptyCount; i++) {
@@ -30,9 +34,10 @@ function createCalendar(elem, year, month) {
     div.append(table);
 }
 
+let days = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+
 function createHeader() {
-    const thead = document.createElement('thead');
-    let days = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+    const thead = document.createElement('thead')
     for(let day of days){
         const th = document.createElement('th');
         th.innerHTML = day;
@@ -41,4 +46,5 @@ function createHeader() {
 
     return thead;
 }
+
 createCalendar(calendar, 2019, 8);
