@@ -1,3 +1,5 @@
+'use strict'
+
 function createCalendar(elem, year, month) {
     let div = document.querySelector("#calendar");
     let table = document.createElement("table");
@@ -47,4 +49,34 @@ function createHeader() {
     return thead;
 }
 
-createCalendar(calendar, 2019, 8);
+const createTBody = () => {
+    let div = document.querySelector("#calendar");
+    let table = document.createElement("table");
+    table.append(createHeader());
+    let firstDay = 1;
+    let lastMonthDay = 30;
+
+    let tbody = document.createElement("table");
+        for (let day = 1; day <= lastMonthDay;) {
+            const tr = document.createElement("tr");
+            for (let index = 1; index <= 7; index++) {
+                const td = document.createElement("td");
+                if (day > lastMonthDay) {
+                    break;
+                }
+                if (index === firstDay) {
+                    td.innerHTML = day++;
+                    tr.append(td);
+                    continue;
+                }
+                td.innerHTML = day++;
+                tr.append(td);
+            }
+            tbody.append(tr);
+        }
+    div.append(tbody);
+};
+
+// createCalendar(calendar, 2019, 8);
+
+createTBody();
