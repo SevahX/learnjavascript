@@ -49,10 +49,10 @@ function makeBuffer2() {
 
 function makeBuffer3() {
     let buf = '';
-    return function(piece) {
+    return function(val) {
         if (arguments.length === 0) {
             return buf;
         }
-        buf += piece;
+        buf += val;
     };
 }
