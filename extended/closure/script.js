@@ -50,7 +50,7 @@ function makeBuffer2() {
 function makeBuffer3() {
     let buf = '';
     return function(piece) {
-        if (arguments.length === 0) { // вызов без аргументов
+        if (arguments.length === 0) {
             return buf;
         }
         buf += piece;
