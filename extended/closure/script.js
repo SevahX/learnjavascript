@@ -45,6 +45,27 @@ army[0](); // у 0-го стрелка будет номер 10
 army[5](); // и у 5-го стрелка тоже будет номер 10
 // ... у всех стрелков будет номер 10, вместо 0, 1, 2, 3...
 
+console.log("\n--------------------inBetween-inArray------------------------\n");
+
+let arr = [1, 2, 3, 4, 5, 6, 7];
+
+console.log(arr.filter(inBetween(3, 6)));
+console.log(arr.filter(inArray([1, 2, 10])));
+
+console.log("\n--------------------sort------------------------\n");
+
+let users = [
+    { name: "John", age: 20, surname: "Johnson" },
+    { name: "Pete", age: 18, surname: "Peterson" },
+    { name: "Ann", age: 19, surname: "Hathaway" }
+];
+
+users.sort(byField('name'));
+console.log(users.reduce((final, {name} = curr) => final += "|" + name, ''));
+
+users.sort(byField('age'));
+console.log(users.reduce((final, {name} = curr) => final += "|" + name, ''));
+
 function sum(a) {
     return (b) =>{
         return a + b;
@@ -118,3 +139,22 @@ function makeArmy() {
 
     return shooters;
 }
+
+function inBetween(left, rigth) {
+    return (val) => {
+        return val >= left && val <= rigth;
+    }
+}
+
+function inArray(arr) {
+    return (val) => {
+        return arr.includes(val);
+    }
+}
+
+function byField(name) {
+    return (a, b) => {
+        return a[name] > b[name] ? 1 : -1;
+    }
+}
+
