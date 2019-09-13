@@ -19,7 +19,9 @@ let data = {
 };
 
 function createTree(container, data) {
-    container.append(createTreeRec(data));
+    let mainUl = createTreeRec(data);
+    mainUl.classList.add('tree');
+    container.append(mainUl);
 }
 
 function createTreeRec(data){
@@ -39,3 +41,17 @@ function createTreeRec(data){
 }
 
 createTree(document.getElementById('tree'), data);
+
+document.querySelector('.tree').addEventListener("click", (event) =>{
+    let li = event.target;
+
+    if (li.tagName !=='LI') return;
+
+    console.log(li);
+    let ul = li.querySelector('ul');
+    console.log(ul);
+
+    if (ul){
+        ul.hidden = !ul.hidden;
+    }
+});

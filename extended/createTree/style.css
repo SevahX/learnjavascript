@@ -1,0 +1,12 @@
+.ul {
+
+}
+
+.ul:focus {
+    outline: none;
+}
+
+.ul:hover {
+    background: #ccc;
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // 1 - Sum
 console.log(sum(10)(2));
@@ -76,31 +76,37 @@ function sum(a) {
 function makeBuffer() {
     let buf = '';
     return (val = null) => {
-        if (val === null)
-            return buf;
-
-        buf += val;
-    }
-}
-
-function makeBuffer2() {
-    let buf = '';
-    return (val) => {
-        if (arguments.length === 0)
-            return buf;
-        buf += val;
-    }
-}
-
-function makeBuffer3() {
-    let buf = '';
-    return function(val) {
-        if (arguments.length === 0) {
+        if (val === null){
             return buf;
         }
+
         buf += val;
-    };
+    }
 }
+
+
+//Не работает. Не использовать arguments
+// function makeBuffer2() {
+//     let buf = '';
+//     return (val) => {
+//         if (arguments.length === 0){
+//             return buf;
+//         }
+//
+//         buf += val;
+//     }
+// }
+//
+// function makeBuffer3() {
+//     let buf = '';
+//     return function(val) {
+//         if (arguments.length === 0) {
+//             return buf;
+//         }
+//
+//         buf += val;
+//     };
+// }
 
 function makeBufferWithClear() {
     let buf = '';
@@ -130,9 +136,11 @@ function makeArmy() {
     //     i++;
     // }
 
-    for(let i = 0; i < 10; i++) {
+    for(var i = 0; i < 10; i++) {
+        var orderNoVar = i;
+        let orderNoLet = i;
         let shooter = function() { // функция shooter
-            console.log( i ); // должна выводить порядковый номер
+            console.log( orderNoVar + "|" + orderNoLet); // должна выводить порядковый номер
         };
         shooters.push(shooter);
     }
